@@ -58,3 +58,21 @@ def explain_model_endpoint(
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+from fastapi import Query
+from app.models import Comment, comments_store, comment_id_counter
+
+@router.get("/comments")
+def get_comments(context: str = Query(None)):
+    if context:
+        return [c for c in comments_store if c['context'] == context]
+    return comments_store
+
+@router.post("/comments")
+def add_comment(user: str = Body(...), context: str = Body(...), text: str = Body(...)):
+    global comment_id_counter
+    comment = Comment(user, context, text)
+    comment.id = comment_id_counter
+    comment_id_counter += 1
+    comments_store.append(comment.__dict__)
+    return comment.__dict__
