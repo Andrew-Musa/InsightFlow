@@ -2,7 +2,7 @@
   "name": "insightflow-static-demo",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://YOUR_GITHUB_USERNAME.github.io/InsightFlow/static-demo",
+  "homepage": "https://Andrew-Musa.github.io/InsightFlow/static-demo",
   "dependencies": {
     "@mui/material": "^5.15.0",
     "@emotion/react": "^11.11.0",
