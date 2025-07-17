@@ -13,3 +13,20 @@ def upload_csv(file: UploadFile = File(...)):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+from fastapi import Body
+from app.utils import prepare_visualization_data
+
+@router.post("/visualize")
+def visualize(
+    data: dict = Body(..., embed=True),
+    chart_type: str = Body(...),
+    x_column: str = Body(...),
+    y_column: str = Body(...),
+    group_column: str = Body(None)
+):
+    try:
+        plot_data = prepare_visualization_data(data, chart_type, x_column, y_column, group_column)
+        return plot_data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
