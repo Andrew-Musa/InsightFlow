@@ -31,7 +31,7 @@ def visualize(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-from app.utils import train_model
+from app.utils import train_model, explain_model
 
 @router.post("/train_model")
 def train_model_endpoint(
@@ -42,6 +42,19 @@ def train_model_endpoint(
 ):
     try:
         results = train_model(data, target_column, feature_columns, model_type)
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/explain_model")
+def explain_model_endpoint(
+    data: dict = Body(..., embed=True),
+    target_column: str = Body(...),
+    feature_columns: list = Body(...),
+    model_type: str = Body("decision_tree")
+):
+    try:
+        results = explain_model(data, target_column, feature_columns, model_type)
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
