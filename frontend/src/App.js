@@ -50,7 +50,7 @@ function App() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
         <Toolbar />
-        {selectedPage === 'upload' && <Typography variant="h5">Data Upload & Exploration (Coming Soon)</Typography>}
+        {selectedPage === 'upload' && <UploadDemo />}
         {selectedPage === 'visualization' && <Typography variant="h5">Visualization Dashboard (Coming Soon)</Typography>}
         {selectedPage === 'ml' && <Typography variant="h5">ML Model Builder (Coming Soon)</Typography>}
         {selectedPage === 'explain' && <Typography variant="h5">Explainability Tools (Coming Soon)</Typography>}
