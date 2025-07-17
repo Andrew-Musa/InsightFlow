@@ -31,6 +31,7 @@ const pages = [
 function App() {
   const [selectedPage, setSelectedPage] = useState('upload');
   const [loadedData, setLoadedData] = useState(null);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -60,28 +61,39 @@ function App() {
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {pages.map((page) => (
-              <ListItem
-                button
-                key={page.key}
-                selected={selectedPage === page.key}
-                onClick={() => setSelectedPage(page.key)}
-                sx={{
-                  mb: 1,
-                  borderRadius: 2,
-                  background: selectedPage === page.key ? 'linear-gradient(90deg, #1976d2 80%, #42a5f5 100%)' : 'none',
-                  color: selectedPage === page.key ? '#fff' : 'inherit',
-                  boxShadow: selectedPage === page.key ? '0 2px 8px #1976d233' : 'none',
-                  transition: 'all 0.2s',
-                  '&:hover': { background: 'linear-gradient(90deg, #1976d2 60%, #42a5f5 100%)', color: '#fff' }
-                }}
-              >
-                <ListItemIcon sx={{ color: selectedPage === page.key ? '#fff' : '#1976d2', minWidth: 36 }}>
-                  {page.icon}
-                </ListItemIcon>
-                <ListItemText primary={page.label} />
-              </ListItem>
-            ))}
+            {pages.map((page, idx) => {
+              const isHovered = hoveredIdx === idx;
+              const isSelected = selectedPage === page.key;
+              return (
+                <ListItem
+                  button
+                  key={page.key}
+                  selected={isSelected}
+                  onClick={() => setSelectedPage(page.key)}
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  sx={{
+                    mb: 1,
+                    borderRadius: 2,
+                    background: isSelected || isHovered ? 'linear-gradient(90deg, #1976d2 80%, #42a5f5 100%)' : 'none',
+                    color: isSelected || isHovered ? '#fff' : 'inherit',
+                    boxShadow: isSelected ? '0 2px 8px #1976d233' : 'none',
+                    transition: 'all 0.2s',
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      color: isSelected || isHovered ? '#fff' : '#1976d2',
+                      minWidth: 36,
+                      transition: 'color 0.2s',
+                    }}
+                  >
+                    {page.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={page.label} />
+                </ListItem>
+              );
+            })}
           </List>
         </Box>
       </Drawer>
