@@ -6,7 +6,7 @@ export default function CausalGraph() {
     <Card sx={{ mb: 2 }}>
       <CardContent>
         <Typography variant="h6">Causal Discovery DAG (Simulated)</Typography>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Simple-causal-graph.png" alt="Causal Graph" style={{width:'100%',maxWidth:350}}/>
+        <img src="/demo-assets/causal-dag.svg" alt="Causal Graph" style={{width:'100%',maxWidth:350, borderRadius:12, boxShadow:'0 2px 8px #0001'}}/>
         <Typography variant="caption" color="text.secondary">Simulated: Causal structure learned from data</Typography>
       </CardContent>
     </Card>

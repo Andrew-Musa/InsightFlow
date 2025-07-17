@@ -6,7 +6,7 @@ export default function OutlierDetection() {
     <Card sx={{ mb: 2 }}>
       <CardContent>
         <Typography variant="h6">Outlier Detection</Typography>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Boxplot_vs_PDF.png" alt="Outlier Detection" style={{width:'100%',maxWidth:400}}/>
+        <img src="/demo-assets/outlier-boxplot.svg" alt="Outlier Detection" style={{width:'100%',maxWidth:400, borderRadius:12, boxShadow:'0 2px 8px #0001'}}/>
         <Typography variant="caption" color="text.secondary">Simulated: Boxplot with detected outliers highlighted</Typography>
       </CardContent>
     </Card>

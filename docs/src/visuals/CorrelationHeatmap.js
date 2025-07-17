@@ -7,7 +7,7 @@ export default function CorrelationHeatmap() {
     <Card sx={{ mb: 2 }}>
       <CardContent>
         <Typography variant="h6">Correlation Heatmap</Typography>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Correlation_matrix_heatmap.png" alt="Correlation Heatmap" style={{width:'100%',maxWidth:400}}/>
+        <img src="/demo-assets/correlation-heatmap.svg" alt="Correlation Heatmap" style={{width:'100%',maxWidth:400, borderRadius:12, boxShadow:'0 2px 8px #0001'}}/>
         <Typography variant="caption" color="text.secondary">Simulated: Pearson/Spearman correlations, colored by strength</Typography>
       </CardContent>
     </Card>

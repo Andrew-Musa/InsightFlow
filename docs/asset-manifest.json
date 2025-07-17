@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/InsightFlow/static/js/main.a5fbe871.js",
+    "main.js": "/InsightFlow/static/js/main.5816670f.js",
     "index.html": "/InsightFlow/index.html",
-    "main.a5fbe871.js.map": "/InsightFlow/static/js/main.a5fbe871.js.map"
+    "main.5816670f.js.map": "/InsightFlow/static/js/main.5816670f.js.map"
   },
   "entrypoints": [
-    "static/js/main.a5fbe871.js"
+    "static/js/main.5816670f.js"
   ]
 }
