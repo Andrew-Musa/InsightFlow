@@ -30,3 +30,18 @@ def visualize(
         return plot_data
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+from app.utils import train_model
+
+@router.post("/train_model")
+def train_model_endpoint(
+    data: dict = Body(..., embed=True),
+    target_column: str = Body(...),
+    feature_columns: list = Body(...),
+    model_type: str = Body("decision_tree")
+):
+    try:
+        results = train_model(data, target_column, feature_columns, model_type)
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
