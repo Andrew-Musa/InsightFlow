@@ -2,7 +2,7 @@
   "name": "insightflow-static-demo",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://Andrew-Musa.github.io/InsightFlow/docs",
+  "homepage": "https://andrew-musa.github.io/InsightFlow/",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
